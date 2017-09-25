@@ -4,8 +4,9 @@ export default class Api {
     /**
      * @param client
      */
-    constructor(client) {
+    constructor(client, routes) {
         this.client = client
+        this.routes = routes
     }
 
     /**
@@ -62,10 +63,10 @@ export default class Api {
 
     /**
      * @param $name
-     * @returns {ApiResource}
+     * @returns {Resource}
      */
     resource($name) {
-        return new Resource(this, $name, routes)
+        return new Resource(this, $name, this.routes)
     }
 
     /**
@@ -75,13 +76,12 @@ export default class Api {
      */
     findUrl(method, name) {
         try {
-            if (routes[method][name]) {
-                return routes[method][name]
+            if (this.routes[method][name]) {
+                return this.routes[method][name]
             }
         } catch(error) {
             return name
         }
-
 
         return name
     }
@@ -103,6 +103,6 @@ export default class Api {
             $parameters = $suffix
         }
 
-        return routes.options.prefix + $uri + $parameters;
+        return this.routes.options.prefix + $uri + $parameters;
     }
 }
