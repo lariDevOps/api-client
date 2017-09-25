@@ -1,0 +1,23 @@
+{
+  "name": "lari-api-client",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/Api.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lariDevOps/api-client.git"
+  },
+  "keywords": [
+    "javascript",
+    "api",
+    "axios"
+  ],
+  "author": "Sebastian Szczepanski <sebastian@ably.pl> (http://ably.pl)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lariDevOps/api-client/issues"
+  },
+  "homepage": "https://github.com/lariDevOps/api-client#readme"
+}
