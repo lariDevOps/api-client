@@ -92,15 +92,14 @@ export default class Api {
      * @returns {string}
      */
     url($uri, $parameters) {
-        let $suffix;
+        let $suffix = [];
         if (Object.prototype.toString.call($parameters) === '[object Object]') {
-            $suffix = '?';
 
             Object.keys($parameters).forEach((key) => {
-                $suffix += `${key}=${$parameters[key]}`
-        })
+                $suffix.push(`${key}=${$parameters[key]}`)
+            })
 
-            $parameters = $suffix
+            $parameters = '?'+$suffix.join('&')
         }
 
         return this.routes.options.prefix + $uri + $parameters;
